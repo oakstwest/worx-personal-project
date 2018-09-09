@@ -1,0 +1,77 @@
+/* .App {
+  background: black;
+} */
+
+.nav {
+  overflow: hidden;
+}
+
+.search-bar {
+  overflow: hidden;
+  position: absolute;
+}
+
+.bestsellers {
+  text-align: center;
+}
+
+.search-bar-button {
+  background: #f47920;
+  padding: 20px;
+  height: 49px;
+}
+
+.products {
+  text-align: center;
+}
+
+.product-image {
+  width: 300px;
+  height: 400px;
+}
+
+.category-paragraph > p {
+  margin: 20px;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  color: #546670;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+.category-paragraph > h2 {
+  margin: 20px;
+  margin-bottom: 0.5em;
+  color: #546670;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+}
+
+.input {
+  width: 250px;
+  height: 45px;
+  font-size: 20px;
+  color: #f47920;
+}
+
+.products > button {
+  width: 65px;
+  height: 30px;
+  background: #8dc63f;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.footer-container {
+  background: #546670;
+  color: white;
+  columns: 2;
+  column-fill: balance;
+  list-style: none;
+}
