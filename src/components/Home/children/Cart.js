@@ -46,14 +46,24 @@ export default class Cart extends Component {
 
   render() {
     // console.log(this.state.cart);
+    let totalCost = 0;
+
+    let cart = [];
+    cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart);
     let mappedCart = this.state.cart.map((item, i) => {
+      let quantity = cart.find(product => {
+        return product.product_id == item.product_id;
+      }).quantity;
+      let productCost = item.price * quantity;
+      totalCost += productCost;
       return (
         <div key={i}>
           <img src={item.img} alt="" />
-          <span>{item.product_id}</span>
+          {/* <span>{item.product_id}</span> */}
           <span>{item.title}</span>
-          <span>{item.price}</span>
-          <span>{localStorage.getItem("cart")}</span>
+          <span>{productCost}</span>
+          <span>{quantity}</span>
           <button onClick={() => this.deleteProduct(item.product_id)}>
             DELETE
           </button>
@@ -65,7 +75,7 @@ export default class Cart extends Component {
         <Header />
         <h1>cart</h1>
         {mappedCart}
-        <Checkout cart={mappedCart} />
+        <Checkout amount={totalCost * 100} />
         <Footer />
       </div>
     );

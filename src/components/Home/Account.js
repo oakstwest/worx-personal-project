@@ -21,6 +21,7 @@ class Account extends Component {
 
     axios.get(`/api/user-data/${this.props.user.user_id}`).then(resp => {
       this.setState({ user: resp.data });
+      // this.props.updateUser(resp.data);
     });
   }
 
@@ -59,7 +60,7 @@ class Account extends Component {
             <h3>SUBSCRIPTION INFORMATION</h3>
             <h6>SUBSCRIBED TO:</h6>{" "}
             <p>You are currently not subscribed to any newsletter.</p>
-            <a href="http://localhost:3005/auth/logout">
+            <a href={process.env.REACT_APP_LOGOUT}>
               <button>Logout</button>
             </a>
             <Link to="/">

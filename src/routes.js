@@ -23,6 +23,7 @@ import YardCarts from "./components/Home/children/Products/children/YardCarts/Ya
 import Cart from "./components/Home/children/Cart";
 import Account from "./components/Home/Account";
 import AccountForm from "./components/Home/AccountForm";
+import ProductDetails from "./components/Home/children/Products/ProductDetails";
 
 export default (
   <Switch>
@@ -49,5 +50,6 @@ export default (
     <Route path="/cart" component={Cart} />
     <Route path="/account" component={Account} />
     <Route path="/accountinfo" component={AccountForm} />
+    <Route path="/products/details" component={ProductDetails} />
   </Switch>
 );

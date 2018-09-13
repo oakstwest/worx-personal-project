@@ -42,6 +42,7 @@ class Header extends Component {
   // }
 
   render() {
+    // console.log("%cLOLIHACKEDYOU", "color: orange; font-size: 72px");
     let { user } = this.props;
     return (
       <div>
@@ -72,7 +73,7 @@ class Header extends Component {
           </div>
           <img
             className="american-flag"
-            src="https://www.worx.com/skin/frontend/positec/default/images/flags/flag_en_US.1534973283.jpg"
+            src="https://www.worx.com/skin/frontend/positec/default/images/flags/flag_en_US.1535637952.jpg"
             alt="American Flag"
           />
         </div>
@@ -89,7 +90,7 @@ class Header extends Component {
               <p>CALL</p>
             </span>
             {user.user_id ? (
-              <a href="http://localhost:3005/auth/logout">
+              <a href={process.env.REACT_APP_LOGOUT}>
                 <span onClick={this.handleLogout}>
                   <i className="fas fa-user" />
                   <p>LOG OUT</p>

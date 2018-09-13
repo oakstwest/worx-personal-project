@@ -73,8 +73,7 @@ class Blowers extends Component {
         <div key={i} className="products">
           <img src={product.img} alt="" className="product-image" />
           {product.title}
-          <br />
-          {product.price}
+          <br />${product.price}
           <button onClick={() => this.addToCart(product.product_id)}>
             ADD TO CART
           </button>

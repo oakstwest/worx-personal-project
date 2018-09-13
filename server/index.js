@@ -14,10 +14,14 @@ const {
   REACT_APP_CLIENT_ID,
   REACT_APP_DOMAIN,
   CLIENT_SECRET,
-  SECRET
+  SECRET,
+  HOMEPAGE
 } = process.env;
 
 const app = express();
+
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(bodyParser.json());
 
 massive(CONNECTION_STRING)
@@ -97,7 +101,7 @@ app.get("/api/user-data", (req, res) => {
 
 app.get("/auth/logout", (req, res) => {
   req.session.destroy();
-  res.redirect("http://localhost:3000/");
+  res.redirect(HOMEPAGE);
 });
 
 app.delete("/api/user-data/:id", (req, res) => {

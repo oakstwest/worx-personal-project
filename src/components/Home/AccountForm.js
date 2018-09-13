@@ -55,7 +55,7 @@ class AccountForm extends Component {
     };
     axios.put(`/api/users/${user.user_id}`, updatedUser).then(res => {
       console.log(res);
-      this.setState({ user: res.data });
+      this.props.updateUser(res.data[0]);
     });
     if (updatedUser) {
       alert("Your details have been updated!");
