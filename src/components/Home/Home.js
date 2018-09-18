@@ -2,18 +2,28 @@ import React, { Component } from "react";
 import Header from "./Header";
 import axios from "axios";
 import Footer from "./Footer";
+import FooterSubscription from "./FooterSubscription";
 import { connect } from "react-redux";
 import { updateProducts } from "../../ducks/reducer";
 
 class Home extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      products: []
+    };
+  }
   componentDidMount() {
-    axios.get("/api/products").then(res => {
-      this.props.updateProducts(res.data);
+    axios.get("/api/category/Turbine Leaf Blowers").then(res => {
+      this.setState({
+        products: res.data
+      });
     });
   }
 
   render() {
-    let productsToDisplay = this.props.products.map((product, i) => {
+    let productsToDisplay = this.state.products.map((product, i) => {
       return (
         <div key={i}>
           <img src={product.img} alt="" />
@@ -24,7 +34,6 @@ class Home extends Component {
     return (
       <div>
         <Header />
-        Home
         <h4 className="bestsellers">BESTSELLERS</h4>
         {productsToDisplay}
         <div className="img-container">
@@ -32,7 +41,20 @@ class Home extends Component {
             src="https://www.worx.com/media/wysiwyg/GTHP.1533910816.jpg"
             alt=""
           />
+          <br />
+          <img
+            src="https://www.worx.com/media/wysiwyg/HSHP.1522086816.jpg"
+            alt=""
+          />
+          <br />
+          <img
+            src="https://www.worx.com/media/wysiwyg/WG750HP.1518540618.jpg"
+            alt=""
+          />
+          <img src="" alt="" />
+          <br />
         </div>
+        <FooterSubscription />
         <Footer />
       </div>
     );

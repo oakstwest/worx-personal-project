@@ -52,6 +52,7 @@ img {
 .bars {
   font-size: 25px;
   font-stretch: narrower;
+  color: #546670;
 }
 
 .american-flag {
@@ -59,6 +60,10 @@ img {
   justify-content: space-around;
   align-items: center;
   height: 20px;
+}
+
+.cart-link {
+  color: #546670;
 }
 
 /* .store-container {
@@ -69,19 +74,21 @@ img {
   border-right: 0.1px solid white;
 } */
 
-span {
+.nav > span {
   background-color: #546670;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0;
-  /* padding-top: 4px; */
+  padding-top: 9px;
+  /* padding-bottom: 4px; */
   /* padding-right: 15px; */
-  color: white !important;
-  font-size: 15px;
+  color: white;
+  font-size: 12px;
+  line-height: 0px;
 }
-
+/* 
 p {
   display: flex;
   align-items: center;
-}
+} */

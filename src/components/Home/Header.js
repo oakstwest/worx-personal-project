@@ -67,7 +67,7 @@ class Header extends Component {
               className="fas fa-search"
               onClick={() => this.props.showSearch(this.props.search)}
             />
-            <Link to="/cart">
+            <Link to="/cart" className="cart-link">
               <i className="fas fa-shopping-cart" />
             </Link>
           </div>
@@ -79,7 +79,7 @@ class Header extends Component {
         </div>
         {/* <hr /> */}
         <Search />
-        <div>
+        <div className="nav">
           <span className="i-container">
             <span className="store-container">
               <i className="fas fa-map-marked-alt" />

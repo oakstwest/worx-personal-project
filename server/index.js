@@ -45,6 +45,7 @@ app.put("/api/users/:id", ct.updateUser);
 app.post("/api/products", ct.productsByIds);
 app.post("/api/payment", stripect.handlePayment);
 app.get("/api/products/:id", ct.getProduct);
+app.get("/api/category/:id", ct.getCategory);
 
 // app.get("/api/productimages", ct.getProductImages);
 // app.post("/api/cart", ct.addProducts);

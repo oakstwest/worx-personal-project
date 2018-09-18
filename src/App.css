@@ -6,6 +6,24 @@
   overflow: hidden;
 }
 
+.navbar-nav {
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #f47920;
+  margin-right: 35px;
+}
+
+.navbar-links {
+  text-decoration: none;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  text-align: center;
+}
+
+.nav-bar-link {
+  color: #546670;
+}
+
 .search-bar {
   overflow: hidden;
   position: absolute;
@@ -13,6 +31,24 @@
 
 .bestsellers {
   text-align: center;
+}
+
+.top-items {
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  text-align: center;
+  color: #f47920;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.link {
+  text-align: center;
+  color: black;
+}
+
+.category-header {
+  text-align: center;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
 }
 
 .search-bar-button {
@@ -58,7 +94,7 @@
   color: #f47920;
 }
 
-.products > button {
+/* .products > button {
   width: 65px;
   height: 30px;
   background: #8dc63f;
@@ -66,12 +102,135 @@
   color: white;
   font-style: normal;
   font-weight: bold;
+} */
+
+.sub-today {
+  color: #f47920;
+}
+
+.footer-subscription {
+  background-color: #e6e6e6;
+  color: #546670;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.subscribe {
+  background: #f47920;
+  width: 95.23px;
+  height: 38px;
+  text-align: center;
+  padding-right: 100px;
+}
+
+.subscription-input {
+  width: 300px;
+  height: 30px;
+  margin-left: -5px;
 }
 
 .footer-container {
   background: #546670;
   color: white;
-  columns: 2;
-  column-fill: balance;
-  list-style: none;
+  /* columns: 2;
+  column-gap: 75px; */
+  list-style-type: none;
+  padding: 20px 10px;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  background: #8dc63f;
+  display: inline-block;
+  padding: 12px 15px 10px;
+  border: 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.product-cart {
+  float: left;
+}
+
+.product-quantity {
+  float: right;
+}
+
+.account-info {
+  color: blue;
+}
+
+.my-account {
+  margin-left: 10px;
+  margin-bottom: 0px;
+  /* background: #e6e6e6; */
+  /* width: 100%; */
+}
+
+.hello-user {
+  margin-left: 10px;
+  margin-bottom: 0;
+  margin-top: 8px;
+  font: italic bold 14px/30px "Roboto Condensed", "Helvetica Neue", Verdana,
+    Arial, sans-serif;
+}
+
+.account-p {
+  margin-top: 0px;
+  margin-left: 10px;
+  font: "Roboto Condensed", "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.account-form {
+  margin-left: 10px;
+}
+
+.acct-input {
+  border: 1px solid #546670;
+  width: 90%;
+  height: 20px;
+}
+
+.account-info-name {
+  margin-top: 30px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+/* .acct-info-h {
+  float: left;
+} */
+
+.sub-info {
+  margin-left: 10px;
+}
+
+.logout {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.delete {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }

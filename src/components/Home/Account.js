@@ -4,6 +4,7 @@ import { updateUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import Header from "../Home/Header";
 import Footer from "../Home/Footer";
+import FooterSubscription from "../Home/FooterSubscription";
 import { Link } from "react-router-dom";
 
 class Account extends Component {
@@ -39,32 +40,47 @@ class Account extends Component {
     return (
       <div>
         <Header />
-        <h4>My Account</h4>
+        <div>
+          <h4 className="my-account">My Account</h4>
+        </div>
         {user.given_name ? (
           <div>
-            <h6>
+            <h6 className="hello-user">
               Hello, {user.given_name} {user.family_name}!
             </h6>
-            <p>
+            <p className="account-p">
               From your My Account Dashboard you have the ability to view a
               snapshot of your recent account activity and update your account
               information. Select a link below to view or edit information.
             </p>
-            <h3>ACCOUNT INFORMATION</h3>
+            <h3 className="account-info-name">ACCOUNT INFORMATION</h3>
             <br />
             <ul>
-              <h5>NAME</h5> {user.given_name} {user.family_name}
-              <h5>EMAIL</h5> {user.email}
-              <h5>PASSWORD</h5> <Link to="/accountinfo">Change Password</Link>
+              <h5 className="acct-info-h">NAME</h5> {user.given_name}{" "}
+              {user.family_name}
+              <h5 className="acct-info-h">EMAIL</h5> {user.email}
+              <h5 className="acct-info-h">PASSWORD</h5>{" "}
+              <Link to="/accountinfo" className="account-info">
+                Change Password
+              </Link>
             </ul>
-            <h3>SUBSCRIPTION INFORMATION</h3>
+            <h3 className="sub-info">SUBSCRIPTION INFORMATION</h3>
             <h6>SUBSCRIBED TO:</h6>{" "}
             <p>You are currently not subscribed to any newsletter.</p>
+            <br />
+            <Link to="/accountinfo" className="account-info">
+              Edit Account Information
+            </Link>
+            <br />
+            <br />
             <a href={process.env.REACT_APP_LOGOUT}>
-              <button>Logout</button>
+              <button className="logout">Logout</button>
             </a>
             <Link to="/">
-              <button onClick={() => this.deleteAcct(user.user_id)}>
+              <button
+                onClick={() => this.deleteAcct(user.user_id)}
+                className="delete"
+              >
                 DELETE
               </button>
             </Link>
@@ -76,6 +92,7 @@ class Account extends Component {
             </Link>
           </div>
         )}
+        <FooterSubscription />
         <Footer />
       </div>
     );

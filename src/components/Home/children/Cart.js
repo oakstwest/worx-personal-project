@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
+import FooterSubscription from "../FooterSubscription";
 import axios from "axios";
 import Checkout from "./Checkout";
 
@@ -60,10 +61,13 @@ export default class Cart extends Component {
       return (
         <div key={i}>
           <img src={item.img} alt="" />
+          <br />
           {/* <span>{item.product_id}</span> */}
           <span>{item.title}</span>
-          <span>{productCost}</span>
-          <span>{quantity}</span>
+          <br />
+          <span className="product-cart">${productCost}</span>
+          <span className="product-quantity"> Quantity: {quantity}</span>
+          <br />
           <button onClick={() => this.deleteProduct(item.product_id)}>
             DELETE
           </button>
@@ -73,9 +77,11 @@ export default class Cart extends Component {
     return (
       <div>
         <Header />
-        <h1>cart</h1>
+        <h2>Cart</h2>
+        <hr />
         {mappedCart}
         <Checkout amount={totalCost * 100} />
+        <FooterSubscription />
         <Footer />
       </div>
     );

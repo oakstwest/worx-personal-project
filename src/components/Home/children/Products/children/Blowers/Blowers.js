@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../../../Header";
 import Footer from "../../../../Footer";
+import FooterSubscription from "../../../../FooterSubscription";
 import axios from "axios";
 import { updateProducts } from "../../../../../../ducks/reducer";
 import { connect } from "react-redux";
@@ -11,13 +12,16 @@ class Blowers extends Component {
     super();
 
     this.state = {
-      cart: []
+      cart: [],
+      products: []
     };
     // this.addToCart = this.addToCart.bind(this);
   }
   componentDidMount() {
-    axios.get("/api/products").then(res => {
-      this.props.updateProducts(res.data);
+    axios.get("/api/category/Blowers & Mulchers").then(res => {
+      this.setState({
+        products: res.data
+      });
     });
 
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -67,13 +71,14 @@ class Blowers extends Component {
     );
   }
   render() {
-    let productsToDisplay = this.props.products.map((product, i) => {
+    let productsToDisplay = this.state.products.map((product, i) => {
       // console.log(product);
       return (
         <div key={i} className="products">
           <img src={product.img} alt="" className="product-image" />
           {product.title}
-          <br />${product.price}
+          <br />
+          <p>${product.price}</p>
           <button onClick={() => this.addToCart(product.product_id)}>
             ADD TO CART
           </button>
@@ -85,9 +90,9 @@ class Blowers extends Component {
     return (
       <div>
         <Header />
-        <h5>Blowers</h5>
+        <h5 classname="category-header">Blowers & Mulchers</h5>
         <div>
-          <Link to="/blowerscordless">
+          <Link to="/blowerscordless" className="link">
             <img
               src="https://www.worx.com/media/catalog/category/subcat_image/resize/321x198/cordless-blowers-subcat-image.1473361936.jpg"
               alt=""
@@ -96,7 +101,7 @@ class Blowers extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/blowerselectric">
+          <Link to="/blowerselectric" className="link">
             <img
               src="https://www.worx.com/media/catalog/category/subcat_image/resize/321x198/corded-blowers-subcat-image.1473361936.jpg"
               alt=""
@@ -105,7 +110,7 @@ class Blowers extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/blowersaccessories">
+          <Link to="/blowersaccessories" className="link">
             <img
               src="https://www.worx.com/media/catalog/category/subcat_image/resize/321x198/blower-acc-subcat-image-v2.1473361936.jpg"
               alt=""
@@ -114,7 +119,7 @@ class Blowers extends Component {
           </Link>
         </div>
 
-        <h3>TOP ITEMS IN LEAF BLOWERS & MULCHERS</h3>
+        <h3 className="top-items">TOP ITEMS IN LEAF BLOWERS & MULCHERS</h3>
         {productsToDisplay}
         <div className="category-paragraph">
           <h2>CORDLESS & ELECTRIC LEAF BLOWERS - MULCHERS</h2>
@@ -189,7 +194,7 @@ class Blowers extends Component {
             and continue to add our tools to their collection.
           </p>
         </div>
-
+        <FooterSubscription />
         <Footer />
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../../../Header";
 import Footer from "../../../../Footer";
+import FooterSubscription from "../../../../FooterSubscription";
 import axios from "axios";
 import { updateProducts } from "../../../../../../ducks/reducer";
 import { connect } from "react-redux";
@@ -11,12 +12,15 @@ class Chainsaws extends Component {
     super();
 
     this.state = {
-      cart: []
+      cart: [],
+      products: []
     };
   }
   componentDidMount() {
-    axios.get("/api/products").then(res => {
-      this.props.updateProducts(res.data);
+    axios.get("/api/category/Saws").then(res => {
+      this.setState({
+        products: res.data
+      });
     });
 
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -54,13 +58,14 @@ class Chainsaws extends Component {
   }
 
   render() {
-    let productsToDisplay = this.props.products.map((product, i) => {
+    console.log(this.props.products);
+    let productsToDisplay = this.state.products.map((product, i) => {
       return (
         <div key={i} className="products">
           <img src={product.img} alt="" className="product-image" />
           {product.title}
           <br />
-          {product.price}
+          <p>${product.price}</p>
           <button onClick={() => this.addToCart(product.product_id)}>
             ADD TO CART
           </button>
@@ -74,7 +79,7 @@ class Chainsaws extends Component {
         <Header />
         <h5>CHAINSAWS</h5>
         <div>
-          <Link to="/jawsaws">
+          <Link to="/jawsaws" className="link">
             <img
               src="https://www.worx.com/media/catalog/category/subcat_image/resize/321x198/jawsaws-subcat-image.1473362194.jpg"
               alt="jawsaw"
@@ -83,7 +88,7 @@ class Chainsaws extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/polesaws">
+          <Link to="/polesaws" className="link">
             <img
               src="https://www.worx.com/media/catalog/category/subcat_image/resize/321x198/chainsaws-subcat-image.1473362194.jpg"
               alt="chainsaw"
@@ -92,7 +97,7 @@ class Chainsaws extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/chainsawaccessories">
+          <Link to="/chainsawaccessories" className="link">
             <img
               src="https://www.worx.com/media/catalog/category/subcat_image/resize/321x198/chainsaw-acc-subcat-image_1.1473362194.jpg"
               alt="chainsaw blade"
@@ -100,7 +105,7 @@ class Chainsaws extends Component {
             <h5>CHAINSAW & JAWSAW ACCESSORIES</h5>
           </Link>
         </div>
-        <h3>TOP ITEMS IN CHAINSAWS & POLE SAWS</h3>
+        <h3 className="top-items">TOP ITEMS IN CHAINSAWS & POLE SAWS</h3>
         {productsToDisplay}
         <div className="category-paragraph">
           <h2>CORDLESS & ELECTRIC CHAINSAWS AND POLE SAWS</h2>
@@ -166,7 +171,7 @@ class Chainsaws extends Component {
             various DIY projects than your traditional chainsaws of the past.
           </p>
         </div>
-
+        <FooterSubscription />
         <Footer />
       </div>
     );

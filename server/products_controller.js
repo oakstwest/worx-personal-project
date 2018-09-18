@@ -38,6 +38,18 @@ module.exports = {
     db.get_product([id]).then(resp => {
       res.status(200).send(resp);
     });
+  },
+  getCategory: (req, res) => {
+    const db = req.app.get("db");
+    const { id } = req.params;
+
+    db.getProductsByCategory([id])
+      .then(resp => {
+        res.status(200).send(resp);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 
